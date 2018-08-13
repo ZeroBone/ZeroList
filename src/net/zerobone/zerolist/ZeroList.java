@@ -16,6 +16,8 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
      */
     private final ArrayList<Integer> spaceIndexes;
 
+    private int length;
+
     /**
      * {@link ZeroList} Constructor
      */
@@ -24,6 +26,14 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
         elements = new ArrayList<>();
 
         spaceIndexes = new ArrayList<>();
+
+        length = 0;
+
+    }
+
+    public int length() {
+
+        return length;
 
     }
 
@@ -61,7 +71,7 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
      * @param id the id of the element.
      * @return the element
      */
-    public T get(int id) throws ElementNotFoundException {
+    public T get(int id) {
 
         try {
 
@@ -70,7 +80,7 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
         }
         catch (IndexOutOfBoundsException e) {
 
-            throw new ElementNotFoundException();
+            return null;
 
         }
 
@@ -82,6 +92,8 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
      * @return the allocated id for this element.
      */
     public int add(T element) {
+
+        length++;
 
         if (spaceIndexes.size() == 0) {
 
@@ -168,6 +180,8 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
             throw new ElementNotFoundException();
 
         }
+
+        length--;
 
         if (id == elements.size() - 1) {
 
