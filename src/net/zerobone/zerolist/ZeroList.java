@@ -37,6 +37,20 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
 
     }
 
+    public ArrayList<T> values(ArrayList<Integer> ids) {
+
+        ArrayList<T> values = new ArrayList<>();
+
+        for (int id : ids) {
+
+            values.add(get(id));
+
+        }
+
+        return values;
+
+    }
+
     /**
      * @param element The element inside the {@link ZeroList}.
      * @return true if the element is in the {@link ZeroList}.
