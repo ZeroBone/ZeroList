@@ -31,6 +31,10 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
 
     }
 
+    /**
+     * Length getter.
+     * @return the amount of elements stored in the {@link ZeroList} object.
+     */
     public int length() {
 
         return length;
@@ -56,6 +60,8 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
      * @return true if the element is in the {@link ZeroList}.
      */
     public boolean has(T element) {
+
+        Integer i = Integer.valueOf(2);
 
         return has(element.getId(this));
 
@@ -202,7 +208,7 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
             // just removed the last element
             // remove the trailing null's to free some space and to avoid small memory leak
 
-            while (elements.get(elements.size() - 1) == null) {
+            while (elements.size() != 0 && elements.get(elements.size() - 1) == null) {
 
                 elements.remove(elements.size() - 1);
 
