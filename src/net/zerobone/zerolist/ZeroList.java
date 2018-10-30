@@ -61,8 +61,6 @@ public class ZeroList<T extends ZeroList.ZeroListable> {
      */
     public boolean has(T element) {
 
-        Integer i = Integer.valueOf(2);
-
         return has(element.getId(this));
 
     }
